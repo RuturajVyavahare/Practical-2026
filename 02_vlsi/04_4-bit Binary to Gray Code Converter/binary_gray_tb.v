@@ -4,29 +4,38 @@ module binary_gray_tb;
 
 reg [3:0] B;
 wire [3:0] G;
-integer i;
 
 // Instantiate the design
-binary_gray uut(
+binary_gray uut (
     .B(B),
     .G(G)
 );
 
-// Apply all 16 possible binary input combinations
 initial begin
 
-    for (i = 0; i < 16; i = i + 1) begin
-        B = i;
-        #10;
-    end
+    B = 4'b0000; #10;
+    B = 4'b0001; #10;
+    B = 4'b0010; #10;
+    B = 4'b0011; #10;
+    B = 4'b0100; #10;
+    B = 4'b0101; #10;
+    B = 4'b0110; #10;
+    B = 4'b0111; #10;
+    B = 4'b1000; #10;
+    B = 4'b1001; #10;
+    B = 4'b1010; #10;
+    B = 4'b1011; #10;
+    B = 4'b1100; #10;
+    B = 4'b1101; #10;
+    B = 4'b1110; #10;
+    B = 4'b1111; #10;
 
     $finish;
 
 end
 
-// Display results
 initial begin
-    $monitor("Time=%0t | B=%b | G=%b", $time, B, G);
+    $monitor("Time=%0t | Binary=%b | Gray=%b", $time, B, G);
 end
 
 endmodule
